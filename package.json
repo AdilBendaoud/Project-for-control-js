@@ -1,0 +1,23 @@
+{
+  "name": "project-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-css":"npx tailwindcss -i ./src/input.css -o indcss -i ./src/input.css -o ./public/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdilBendaoud/Project-for-control-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdilBendaoud/Project-for-control-js/issues"
+  },
+  "homepage": "https://github.com/AdilBendaoud/Project-for-control-js#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
