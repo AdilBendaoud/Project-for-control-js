@@ -1,0 +1,8 @@
+.success{
+    border: 2px rgb(13, 196, 13) solid;
+    color:rgb(13, 196, 13);
+}
+.error{
+    border: 2px rgb(223, 22, 22) solid;
+    color: rgb(223, 22, 22);
+}

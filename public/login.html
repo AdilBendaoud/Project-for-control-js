@@ -1,36 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="../src/styles/login.css" />
     <title>Sign Up</title>
-</head>
-<body>
-    <section class=" bg-[url('../src/imgs/signup_bg.jpg')]  w-[100%] h-[100vh] flex bg-cover">
-        <div class=" flex justify-center items-center lg:w-[50%] sm:w-[100%]  h-[100%]">
-            <div class="w-[500px] h-[500px] p-10 flex justify-center flex-col rounded-2xl" style="background: hsla(0, 0%, 100%, 0.30);backdrop-filter: blur(30px);">
-                <h2 class=" text-zinc-800 font-semibold text-2xl uppercase mb-5 border-b-[4px] border-[#ff4584] inline-block tracking-[1px] text-center">Login</h2>
-                <form>
-                    <div class=" mb-5">
-                        <span class=" text-base mb-1 inline-block text-[#607d8b] tracking-[1px]">Username</span>
-                        <input class="w-[100%] py-3 px-5 outline-none font-normal border-[1,#607d8b] text-base tracking-[1px] text-[#607d8b] bg-transparen rounded-[30px]"  type="text" name="username" id="username">
-                    </div>
-                    <div class=" mb-5">
-                        <span class="text-base mb-1 inline-block text-[#607d8b] tracking-[1px]">Password</span>
-                        <input class="w-[100%] py-3 px-5 outline-none font-normal border-[1,#607d8b] text-base tracking-[1px] text-[#607d8b] bg-transparen rounded-[30px]" type="text" name="password" id="password">
-                    </div>
-                    <div class=" mb-5">
-                        <input class="w-[100%] py-3 px-5 outline-none font-medium border-[1,#607d8b] text-base tracking-[1px] text-[#252525] cursor-pointer bg-transparen rounded-[30px] bg-[#63bdef] hover:bg-zinc-300 hover:text-[#63bdef] transition-colors" type="submit" value="Login">
-                    </div>
-                    <div class="mb-5">
-                        <p class=" text-center">Don't have an account ? <a class=" underline text-[#085680]" href="#"> Sign Up</a></p>
-                    </div>
-                </form>
+  </head>
+  <body>
+    <section
+      class="overflow-hidden bg-[url('../src/imgs/signup_bg.jpg')] w-[100%] h-[100vh] flex bg-cover"
+    >
+      <div
+        class="flex justify-center items-center lg:w-[50%] sm:w-[100%] h-[100%]"
+      >
+        <div
+          class="w-[500px] min-h-[100px] overflow-hidden p-10 flex justify-center flex-col rounded-2xl"
+          style="
+            background: hsla(0, 0%, 100%, 0.3);
+            backdrop-filter: blur(30px);
+          "
+        >
+          <h2
+            class="text-zinc-800 font-semibold text-2xl uppercase mb-5 border-b-[4px] border-[#ff4584] inline-block tracking-[1px] text-center"
+          >
+            Login
+          </h2>
+          <form id="form">
+            <div class="mb-5">
+              <span
+                class="text-base mb-1 inline-block text-[#607d8b] tracking-[1px]"
+                >Username :</span
+              >
+              <input
+                class="mb-2 w-[100%] py-3 px-5 outline-none font-normal border-[1,#607d8b] text-base tracking-[1px] text-[#607d8b] bg-transparen rounded-[30px]"
+                type="text"
+                name="username"
+                id="username"
+              />
+              <small
+                class="text-sm text-center block text-zinc-700 font-bold"
+              ></small>
             </div>
+            <div class="mb-5">
+              <span
+                class="text-base mb-1 inline-block text-[#607d8b] tracking-[1px]"
+                >Email :</span
+              >
+              <input
+                class="w-[100%] mb-2 py-3 px-5 outline-none font-normal border-[1,#607d8b] text-base tracking-[1px] text-[#607d8b] bg-transparen rounded-[30px]"
+                type="text"
+                name="email"
+                id="email"
+              />
+              <small
+                class="text-sm text-center block text-zinc-700 font-bold"
+              ></small>
+            </div>
+            <div class="mb-5">
+              <span
+                class="text-base mb-1 inline-block text-[#607d8b] tracking-[1px]"
+                >Password :</span
+              >
+              <input
+                class="w-[100%] mb-2 py-3 px-5 outline-none font-normal border-[1,#607d8b] text-base tracking-[1px] text-[#607d8b] bg-transparen rounded-[30px]"
+                type="password"
+                name="password"
+                id="password"
+              />
+              <small
+                class="text-sm text-center block text-zinc-700 font-bold"
+              ></small>
+            </div>
+            <div class="mb-9">
+              <span
+                class="text-base mb-1 inline-block text-[#607d8b] tracking-[1px]"
+                >Confirm Password :</span
+              >
+              <input
+                class="w-[100%] mb-2 py-3 px-5 outline-none font-normal border-[1,#607d8b] text-base tracking-[1px] text-[#607d8b] bg-transparen rounded-[30px]"
+                type="password"
+                name="password"
+                id="confpassword"
+              />
+              <small
+                class="text-sm text-center block text-zinc-700 font-bold"
+              ></small>
+            </div>
+            <div class="mb-5">
+              <input
+                class="w-[100%] py-3 px-5 outline-none font-medium border-[1,#607d8b] text-base tracking-[1px] text-black cursor-pointer bg-transparen rounded-[30px] bg-[#63bdef] hover:bg-zinc-300 hover:text-[#ff0055] transition-colors"
+                type="submit"
+                value="Login"
+                id="submit"
+              />
+            </div>
+            <div class="mb-5">
+              <p class="text-center">
+                Don't have an account ?
+                <a class="underline text-[#085680]" href="#"> Sign Up</a>
+              </p>
+            </div>
+          </form>
         </div>
+      </div>
     </section>
-    <script src="../src/login.js"></script>
-</body>
+    <script src="../src/js/login.js"></script>
+  </body>
 </html>
