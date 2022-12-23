@@ -1,0 +1,117 @@
+var courses = [
+    {
+      image: "../src/imgs/javascriptDef.png",
+      title: "what is javascript?",
+      category: "JS",
+      price: 9.9,
+    },
+    {
+      image: "../src/imgs/htmlBasics.PNG",
+      title: "basics of HTML",
+      category: "HTML",
+      price: 5.9,
+    },
+    {
+      image: "../src/imgs/htmlElements.png",
+      title: "HTML elements and tags",
+      category: "HTML",
+      price: 9.9,
+    },
+    {
+      image: "../src/imgs/cssSelectors.jpg",
+      title: "CSS selectors",
+      category: "CSS",
+      price: 69.9,
+    },
+    {
+      image: "../src/imgs/javascriptVariables.png",
+      title: "variables and data type of javascript",
+      category: "JS",
+      price: 19.9,
+    },
+    {
+      image: "../src/imgs/javascriptOperators.png",
+      title: "Javascript operators and conditions",
+      category: "JS",
+      price: 29.9,
+    },
+    {
+      image: "../src/imgs/htmlAttrVal.jpg",
+      title: "HTML attributes and values",
+      category: "HTML",
+      price: 19.9,
+    },
+    {
+      image: "../src/imgs/cssProperties.png",
+      title: "CSS properties",
+      category: "CSS",
+      price: 29.9,
+    },
+    {
+      image: "../src/imgs/javascriptObjects.png",
+      title: "Javascript objects and arrays",
+      category: "JS",
+      price: 39.9,
+    },
+    {
+      image: "../src/imgs/cssMesures.png",
+      title: "mesures and unites of CSS",
+      category: "CSS",
+      price: 19.9,
+    },
+    {
+      image: "../src/imgs/cssAnimation.png",
+      title: "CSS animations",
+      category: "CSS",
+      price: 19.9,
+    },
+    {
+      image: "../src/imgs/javascriptFunctions.png",
+      title: "The basics of javascript",
+      category: "JS",
+      price: 29.9,
+    },
+    {
+      image: "../src/imgs/javascriptEvents.png",
+      title: "javascript events",
+      category: "JS",
+      price: 59.9,
+    },
+    {
+      image: "../src/imgs/cssColors.png",
+      title: "css colors",
+      category: "css",
+      price: 29.9,
+    },
+    {
+      image: "../src/imgs/phpBasics.png",
+      title: "getting started with php",
+      category: "php",
+      price: 15.9,
+    },
+    {
+      image: "../src/imgs/javascriptFunctions2.png",
+      title: "functions and loops with javascript",
+      category: "JS",
+      price: 19.9,
+    },
+    {
+      image: "../src/imgs/phpDataBase.png",
+      title: "connecting to database using PHP",
+      category: "PHP",
+      price: 29.9,
+    },
+    {
+      image: "../src/imgs/phpCRUD.png",
+      title: "manipulating crud using php",
+      category: "php",
+      price: 45.9,
+    },
+    {
+      image: "../src/imgs/javascriptDOM.png",
+      title: "DOM the power of javascript",
+      category: "JS",
+      price: 23.9,
+    },
+  ];
+  export default courses;
