@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="../src/styles/courses.css" />
+    <title>cours tp</title>
+  </head>
+  <body>
+    <section class=" flex sm:flex-row sosm:flex-col sosm:justify-center sosm:items-center">
+        <div class="filter sosm:w-full">
+            <input type="text" id="searsh" placeholder="searsh" />
+            <div class="filter-elements">
+              <span>Coures</span>
+              <ul>
+                <li>All</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>PHP</li>
+              </ul>
+            </div>
+            <div class="filter-range">
+              <input type="range" name="range" id="range" min="0" max="80" />
+              <span class="labelle">valeur : 0$</span>
+            </div>
+          </div>
+          <div class="container grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  sosm:w-full gap-y-8  "></div>
+    </section>
+    <div class=" w-full h-16">salam</div>
+    <script type="module" src="../src/js/courses.js"></script>
+  </body>
+</html>
