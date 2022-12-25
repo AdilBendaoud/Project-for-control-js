@@ -4,7 +4,6 @@ let confirmPasswordEl = document.getElementById("confpassword")
 let emailEl = document.getElementById("email");
 let form = document.getElementById("form");
 let submit = document.getElementById("submit");
-
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
@@ -36,7 +35,7 @@ const checkUsername = () => {
 
     let valid = false;
 
-    const min = 3,max = 20;
+    const min = 3,max = 25;
 
     const username = usernameEl.value.trim();
 
@@ -110,11 +109,10 @@ const isPasswordSecure = (password) => {
     return re.test(password);
 };
 
+
 submit.addEventListener('click', function (e) {
-    // prevent the form from submitting
         e.preventDefault();
 
-    // validate fields
     let isUsernameValid = checkUsername(),
         isEmailValid = checkEmail(),
         isPasswordValid = checkPassword(),

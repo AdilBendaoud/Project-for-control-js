@@ -4,32 +4,90 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./output.css" />
     <link rel="stylesheet" href="../src/styles/courses.css" />
     <title>cours tp</title>
   </head>
   <body>
-    <section class=" flex sm:flex-row sosm:flex-col sosm:justify-center sosm:items-center">
-        <div class="filter sosm:w-full">
-            <input type="text" id="searsh" placeholder="searsh" />
-            <div class="filter-elements">
-              <span>Coures</span>
-              <ul>
-                <li>All</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Javascript</li>
-                <li>PHP</li>
-              </ul>
-            </div>
-            <div class="filter-range">
-              <input type="range" name="range" id="range" min="0" max="80" />
-              <span class="labelle">valeur : 0$</span>
-            </div>
+    <nav
+      class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white"
+    >
+      <div>
+        <a href="./index.html">
+          <div class="w-[250px] h-[100%]">
+            <img src="../src/imgs/logo.jpg" />
           </div>
-          <div class="container grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  sosm:w-full gap-y-8  "></div>
+        </a>
+      </div>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        id="menu-button"
+        class="h-6 w-6 cursor-pointer md:hidden block"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+
+      <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+        <ul
+          class="pt-4 text-base md:flex items-center md:justify-between md:pt-0"
+        >
+          <li
+            class="hover:bg-opacity-100 hover:text-white md:mr-5 lg:mr-16 bg-opacity-70 bg-[#73b8c9] p-3 px-9 text-center rounded-lg cursor-pointer transition-all duration-300 font-semibold"
+          >
+            <a href="./index.html">Home</a>
+          </li>
+          <li
+            class="hover:bg-opacity-100 hover:text-white md:mr-5 lg:mr-16 bg-opacity-70 bg-[#73b8c9] p-3 px-9 text-center rounded-lg cursor-pointer transition-all duration-300 font-semibold"
+          >
+            <a href="./courses.html">Courses</a>
+          </li>
+          <li
+            class="hover:bg-opacity-100 hover:text-white md:mr-5 lg:mr-16 bg-opacity-70 bg-[#73b8c9] p-3 px-9 text-center rounded-lg cursor-pointer transition-all duration-300 font-semibold"
+          >
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="flex sm:flex-row sosm:flex-col max-[300px]:items-center">
+      <div class="filter sm:w-[40%] lg:w-[20%]">
+        <input
+          class="mb-5 h-8 p-3 outline-none border-solid border-gray-800 border-2"
+          type="text"
+          id="searsh"
+          placeholder="searsh"
+        />
+        <div class="filter-elements">
+          <span>Coures</span>
+          <ul>
+            <li class="category">All</li>
+            <li class="category">HTML</li>
+            <li class="category">CSS</li>
+            <li class="category">Javascript</li>
+            <li class="category">PHP</li>
+          </ul>
+        </div>
+        <div class="filter-range">
+          <input type="range" name="range" id="range" min="0" max="80" />
+          <span class="labelle">valeur : 0$</span>
+        </div>
+      </div>
+      <div
+        class="box lg:pl-10 pt-10 h-min sm:w-[60%] lg:w-[80%] grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sosm:w-[100] gap-y-8"
+      ></div>
     </section>
-    <div class=" w-full h-16">salam</div>
+    <footer class="text-center h-[40px] font-normal">
+      <p>Devloped By ADILBENDAOUD <span>&copy;</span> 2022-2023</p>
+    </footer>
     <script type="module" src="../src/js/courses.js"></script>
   </body>
 </html>
