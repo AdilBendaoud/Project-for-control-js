@@ -1,4 +1,4 @@
-import courses from "./data.js";
+ import courses from "./data.js";
 let li = document.getElementsByClassName("category");
 let searsh = document.getElementById("searsh");
 let range = document.getElementById("range");

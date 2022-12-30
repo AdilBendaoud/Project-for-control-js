@@ -1,9 +1,10 @@
-let usernameEl = document.getElementById("username");
-let passwordEl = document.getElementById("password");
-let confirmPasswordEl = document.getElementById("confpassword")
-let emailEl = document.getElementById("email");
+let usernameInput = document.getElementById("username");
+let passwordInput = document.getElementById("password");
+let confirmPasswordInput = document.getElementById("confpassword")
+let emailInput = document.getElementById("email");
 let form = document.getElementById("form");
 let submit = document.getElementById("submit");
+
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
@@ -37,27 +38,27 @@ const checkUsername = () => {
 
     const min = 3,max = 25;
 
-    const username = usernameEl.value.trim();
+    const username = usernameInput.value.trim();
 
     if (!isRequired(username)) {
-        showError(usernameEl, 'Username cannot be blank.');
+        showError(usernameInput, 'Username cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
-        showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
+        showError(usernameInput, `Username must be between ${min} and ${max} characters.`)
     } else {
-        showSuccess(usernameEl);
+        showSuccess(usernameInput);
         valid = true;
     }
     return valid;
 };
 const checkEmail = () => {
     let valid = false;
-    const email = emailEl.value.trim();
+    const email = emailInput.value.trim();
     if (!isRequired(email)) {
-        showError(emailEl, 'Email cannot be blank.');
+        showError(emailInput, 'Email cannot be blank.');
     } else if (!isEmailValid(email)) {
-        showError(emailEl, 'Email is not valid.')
+        showError(emailInput, 'Email is not valid.')
     } else {
-        showSuccess(emailEl);
+        showSuccess(emailInput);
         valid = true;
     }
     return valid;
@@ -67,14 +68,14 @@ const checkPassword = () => {
     let valid = false;
 
 
-    const password = passwordEl.value.trim();
+    const password = passwordInput.value.trim();
 
     if (!isRequired(password)) {
-        showError(passwordEl, 'Password cannot be blank.');
+        showError(passwordInput, 'Password cannot be blank.');
     } else if (!isPasswordSecure(password)) {
-        showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+        showError(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
     } else {
-        showSuccess(passwordEl);
+        showSuccess(passwordInput);
         valid = true;
     }
 
@@ -84,15 +85,15 @@ const checkPassword = () => {
 const checkConfirmPassword = () => {
     let valid = false;
     // check confirm password
-    const confirmPassword = confirmPasswordEl.value.trim();
-    const password = passwordEl.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
+    const password = passwordInput.value.trim();
 
     if (!isRequired(confirmPassword)) {
-        showError(confirmPasswordEl, 'Please enter the password again');
+        showError(confirmPasswordInput, 'Please enter the password again');
     } else if (password !== confirmPassword) {
-        showError(confirmPasswordEl, 'The password does not match');
+        showError(confirmPasswordInput, 'The password does not match');
     } else {
-        showSuccess(confirmPasswordEl);
+        showSuccess(confirmPasswordInput);
         valid = true;
     }
 
@@ -109,22 +110,46 @@ const isPasswordSecure = (password) => {
     return re.test(password);
 };
 
+let input = document.getElementsByClassName("input");
+let typingTimer;             
+
+for(var i=0;i<4;i++){
+    input[i].addEventListener("keyup", e =>{
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(()=>{
+                switch (e.target.id) {
+                    case 'username':
+                        checkUsername();
+                        break;
+                    case 'password':
+                        checkPassword();
+                        break;
+                    case 'email':
+                        checkEmail();
+                        break;
+                    case 'confpassword':
+                        checkConfirmPassword();
+                        break;    
+                    default:
+                        break;
+                }
+            }, 500);
+        })           
+}
 
 submit.addEventListener('click', function (e) {
-        e.preventDefault();
+    e.preventDefault();
+let isUsernameValid = checkUsername(),
+    isEmailValid = checkEmail(),
+    isPasswordValid = checkPassword(),
+    isConfirmPasswordValid = checkConfirmPassword();
 
-    let isUsernameValid = checkUsername(),
-        isEmailValid = checkEmail(),
-        isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword();
+let isFormValid = isUsernameValid &&
+    isEmailValid &&
+    isPasswordValid &&
+    isConfirmPasswordValid;
 
-    let isFormValid = isUsernameValid &&
-        isEmailValid &&
-        isPasswordValid &&
-        isConfirmPasswordValid;
-
-    // submit to the server if the form is valid
-    if (isFormValid) {
-        location.replace("../../public/index.html");
-    }
+if (isFormValid) {
+    location.replace("../../public/index.html");
+}
 });
