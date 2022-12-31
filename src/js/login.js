@@ -13,7 +13,7 @@ const showError = (input, message) => {
     input.classList.add('error');
 
     // show the error message
-    input.nextSibling.textContent = message;
+    input.nextElementSibling.textContent = message;
 };
 
 const showSuccess = (input) => {
@@ -21,7 +21,7 @@ const showSuccess = (input) => {
     input.classList.add('success');
 
     // hide the error message
-    input.nextSibling.textContent = '';
+    input.nextElementSibling.textContent = '';
 }
 const checkUsername = () => {
 
