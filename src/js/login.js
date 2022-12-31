@@ -138,6 +138,6 @@ submit.addEventListener("click", function (e) {
     let formIsValid = usernameIsValid && emailIsValid  && passwordIsValid && confirmPasswordIsValid;
 
   if (formIsValid) {
-    location.replace("./public/index.html");
+    location.replace("./index.html");
   }
 });
