@@ -9,23 +9,25 @@ button.addEventListener('click', () => {menu.classList.toggle('hidden')});
 
 var prix = Math.max(...courses.map((v) => v.price));
 range.setAttribute("max", prix);
-for (let i = 0; i < courses.length; i++) {
+
+function creatDiv(imgUrl,titleText,priceText){
+  
   let container = document.createElement("div");
   container.classList.add("exemple");
   let imgDiv = document.createElement("div");
   imgDiv.classList.add("img");
   let img = document.createElement("img");
-  img.src = courses[i].image;
+  img.src = imgUrl;
   imgDiv.appendChild(img);
   let detail = document.createElement("div");
   detail.classList.add("detail");
   let titleDiv = document.createElement("p");
   titleDiv.classList.add("title");
-  let title = document.createTextNode(courses[i].title);
+  let title = document.createTextNode(titleText);
   titleDiv.appendChild(title);
   let priceDiv = document.createElement("p");
   priceDiv.classList.add("price");
-  let price = document.createTextNode(`${courses[i].price} $`);
+  let price = document.createTextNode(`${priceText} $`);
   priceDiv.appendChild(price);
   detail.appendChild(titleDiv);
   detail.appendChild(priceDiv);
@@ -34,7 +36,15 @@ for (let i = 0; i < courses.length; i++) {
   div.appendChild(container);
 }
 
-var numberOfChildren = div.getElementsByClassName("exemple").length;
+for (let i = 0; i < courses.length; i++) {
+  creatDiv(courses[i].image,courses[i].title,courses[i].price)
+}
+
+function showAllCourses(){
+  for (var i = 0; i < courses.length; i++) {
+    div.children[i].style.display = "block";
+  }
+}
 
 let text = document.createTextNode("Sorry, No Courses Matcher Your Search");
 let p = document.createElement("p");
@@ -56,18 +66,15 @@ function displayedElements() {
 for (var i = 0; i < 5; i++) {
   li[i].addEventListener("click", (e) => {
     if (e.target.innerText !== "All") {
+      showAllCourses();
       for (var i = 0; i < courses.length; i++) {
-        div.children[i].style.display = "block";
-      }
-      for (var i = 0; i < courses.length; i++) {
-        if (!div.children[i].children[1].children[0].outerText.includes(e.target.innerText)) {
+        let title = div.children[i].children[1].children[0].outerText;
+        if (!(title.includes(e.target.innerText) || title.includes(e.target.innerText.toLowerCase()) || title.includes(e.target.innerText.toUpperCase()))) {
           div.children[i].style.display = "none";
         }
       }
     } else {
-      for (var i = 0; i < courses.length; i++) {
-        div.children[i].style.display = "block";
-      }
+      showAllCourses();
     }
   });
 }
@@ -75,13 +82,11 @@ for (var i = 0; i < 5; i++) {
 //range
 
 range.addEventListener("change", (e) => {
-  for (var i = 0; i < courses.length; i++) {
-    div.children[i].style.display = "block";
-  }
+  showAllCourses();
   for (var i = 0; i < courses.length; i++) {
     let text = div.children[i].children[1].children[1].outerText;
-    let x = text.slice(0,text.length-1)
-    if (+x > e.target.value) {
+    let priceNumber = text.slice(0,text.length-1)
+    if (+priceNumber > e.target.value) {
       div.children[i].style.display = "none";
     }
   }
@@ -95,9 +100,8 @@ searsh.addEventListener("input", (e) => {
     div.removeChild(p);
   }
 
-  for (var i = 0; i < courses.length; i++) {
-    div.children[i].style.display = "block";
-  }
+  showAllCourses();
+  
   for (var i = 0; i < courses.length; i++) {
     var text = e.target.value;
     if (!div.children[i].children[1].children[0].outerText.includes(text)) {

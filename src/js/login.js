@@ -5,32 +5,23 @@ let emailInput = document.getElementById("email");
 let form = document.getElementById("form");
 let submit = document.getElementById("submit");
 
-const isRequired = value => value === '' ? false : true;
+const isEmpty = value => value === '' ? true : false;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 const showError = (input, message) => {
-    // get the form-field element
-    const formField = input;
-    // add the error class
-    formField.classList.remove('success');
-    formField.classList.add('error');
+    input.classList.remove('success');
+    input.classList.add('error');
 
     // show the error message
-    const error = input.nextSibling;
-    error.textContent = message;
+    input.nextSibling.textContent = message;
 };
 
 const showSuccess = (input) => {
-    // get the form-field element
-    const formField = input;
-
-    // remove the error class
-    formField.classList.remove('error');
-    formField.classList.add('success');
+    input.classList.remove('error');
+    input.classList.add('success');
 
     // hide the error message
-    const error = input.nextSibling;
-    error.textContent = '';
+    input.nextSibling.textContent = '';
 }
 const checkUsername = () => {
 
@@ -40,7 +31,7 @@ const checkUsername = () => {
 
     const username = usernameInput.value.trim();
 
-    if (!isRequired(username)) {
+    if (isEmpty(username)) {
         showError(usernameInput, 'Username cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
         showError(usernameInput, `Username must be between ${min} and ${max} characters.`)
@@ -53,7 +44,7 @@ const checkUsername = () => {
 const checkEmail = () => {
     let valid = false;
     const email = emailInput.value.trim();
-    if (!isRequired(email)) {
+    if (isEmpty(email)) {
         showError(emailInput, 'Email cannot be blank.');
     } else if (!isEmailValid(email)) {
         showError(emailInput, 'Email is not valid.')
@@ -70,7 +61,7 @@ const checkPassword = () => {
 
     const password = passwordInput.value.trim();
 
-    if (!isRequired(password)) {
+    if (isEmpty(password)) {
         showError(passwordInput, 'Password cannot be blank.');
     } else if (!isPasswordSecure(password)) {
         showError(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
@@ -88,7 +79,7 @@ const checkConfirmPassword = () => {
     const confirmPassword = confirmPasswordInput.value.trim();
     const password = passwordInput.value.trim();
 
-    if (!isRequired(confirmPassword)) {
+    if (isEmpty(confirmPassword)) {
         showError(confirmPasswordInput, 'Please enter the password again');
     } else if (password !== confirmPassword) {
         showError(confirmPasswordInput, 'The password does not match');
@@ -101,7 +92,7 @@ const checkConfirmPassword = () => {
 };
 
 const isEmailValid = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^([^<>()\[\]\\,;:\?\!\{\}\s@"]+)@(([a-zA-Z]+\.)+[a-zA-Z]{2,})$/;
     return re.test(email);
 };
 
@@ -133,23 +124,14 @@ for(var i=0;i<4;i++){
                     default:
                         break;
                 }
-            }, 500);
+            }, 300);
         })           
 }
 
 submit.addEventListener('click', function (e) {
     e.preventDefault();
-let isUsernameValid = checkUsername(),
-    isEmailValid = checkEmail(),
-    isPasswordValid = checkPassword(),
-    isConfirmPasswordValid = checkConfirmPassword();
 
-let isFormValid = isUsernameValid &&
-    isEmailValid &&
-    isPasswordValid &&
-    isConfirmPasswordValid;
-
-if (isFormValid) {
+if (checkUsername() || checkEmail() || checkPassword() || checkConfirmPassword()) {
     location.replace("../../public/index.html");
 }
 });

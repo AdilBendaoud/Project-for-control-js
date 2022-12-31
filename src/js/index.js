@@ -1,10 +1,9 @@
 import courses from "./data.js";
 let container = document.getElementById("container");
 
-for (var i = 0; i < 9; i++) {
 
-  let num = Math.ceil(Math.random() * 20);
 
+function creatElm(imgUrl,titleText,priceText){
   let card = document.createElement("div");
   card.classList.add("swiper-slide");
   card.classList.add("card");
@@ -13,17 +12,17 @@ for (var i = 0; i < 9; i++) {
   let imgDiv = document.createElement("div");
   imgDiv.classList.add("image");
   let img = document.createElement("img");
-  img.src = courses[num].image;
+  img.src = imgUrl;
   imgDiv.appendChild(img);
   let para = document.createElement("div");
   para.classList.add("paragraphe");
   let titleSpan = document.createElement("span");
   titleSpan.classList.add("title");
-  let title = document.createTextNode(`${courses[num].title}`);
+  let title = document.createTextNode(`${titleText}`);
   titleSpan.appendChild(title);
   let priceSpan = document.createElement("span");
   priceSpan.classList.add("price");
-  let price = document.createTextNode(`${courses[num].price} $`);
+  let price = document.createTextNode(`${priceText} $`);
   priceSpan.appendChild(price);
   para.appendChild(titleSpan);
   para.appendChild(priceSpan)
@@ -31,4 +30,17 @@ for (var i = 0; i < 9; i++) {
   content.appendChild(para);
   card.appendChild(content);
   container.appendChild(card);
+}
+
+let numExist = [];
+
+for (var i = 0; i < 9; i++) {
+
+  let num = Math.ceil(Math.random() * 20);
+  while(numExist.includes(num)){
+    num = Math.ceil(Math.random() * 20);
+  }
+  numExist.push(num);
+  creatElm(courses[num].image,courses[num].title,courses[num].price)
+  
 }
