@@ -132,6 +132,6 @@ submit.addEventListener('click', function (e) {
     e.preventDefault();
 
 if (checkUsername() || checkEmail() || checkPassword() || checkConfirmPassword()) {
-    location.replace("../../public/index.html");
+    location.replace(".https://adilbendaoud.github.io/Project-for-control-js/public/index.html");
 }
 });
