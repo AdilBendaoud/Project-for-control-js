@@ -36,10 +36,11 @@ let numExist = [];
 
 for (var i = 0; i < 9; i++) {
 
-  let num = Math.ceil(Math.random() * 20);
+  let num = Math.ceil(Math.random() * courses.length-1);
   while(numExist.includes(num)){
-    num = Math.ceil(Math.random() * 20);
+    num = Math.ceil(Math.random() * courses.length-1);
   }
+  console.log(num)
   numExist.push(num);
   creatElm(courses[num].image,courses[num].title,courses[num].price)
   
