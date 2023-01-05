@@ -111,34 +111,39 @@ range.addEventListener("change", (e) => {
 });
 
 //searsh
-
-searsh.addEventListener("input", (e) => {
-
-  //creation du paragraphe qui va s'afficher si le cour rechercher n'existe pas
-  let text = document.createTextNode("Sorry, No Courses Matcher Your Search");
+let text = document.createTextNode("Sorry, No Courses Matcher Your Search");
   let p = document.createElement("p");
   p.classList.add("empty");
   p.appendChild(text);
 
-  //verification s'il existe un cours 
-  if (div.getElementsByClassName("empty").length > 0) {
-    div.removeChild(p);
-  }
 
+searsh.addEventListener("input", (e) => {
+
+  //verification s'il existe un cours 
+  if (displayedElements() > 0) {
+    if(div.lastChild.classList[0] === "empty")
+      div.removeChild(p);
+  }
   //afficher tous les cours avant d'effectuer le filtrage
   showAllCourses();
 
   //filtrage des cours
   for (var i = 0; i < courses.length; i++) {
     var inputValue = e.target.value;
-    if (!div.children[i].children[1].children[0].outerText.includes(inputValue)) {
+    var x =div.children[i].children[1].children[0].outerText;
+    if (!(x.includes(inputValue) || 
+    x.includes(inputValue.toLowerCase()) || 
+    x.includes(inputValue.toUpperCase()))) {
       div.children[i].style.display = "none";
     }
   }
 
   //affichage du paragraphe s'il n'y a pas de cour
   if (displayedElements() === 0) {
-    div.appendChild(p);
+    if(div.lastChild.classList[0] != "empty"){
+      div.appendChild(p);  
+    }
+        
   }
 });
 
